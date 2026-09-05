@@ -26,6 +26,9 @@ Base.metadata.create_all(bind=engine)
 
 # --- FASTAPI APP SETUP ---
 app = FastAPI()
+@app.get("/")
+async def root():
+    return {"message": "SBOM Guardian Backend is Live!"}
 
 app.add_middleware(
     CORSMiddleware,
